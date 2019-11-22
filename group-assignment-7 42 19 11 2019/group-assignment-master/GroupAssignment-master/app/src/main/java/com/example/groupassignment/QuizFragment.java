@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+//you can use this class to select which quiz you want to do.
 public class QuizFragment extends Fragment {
 
     ImageButton imageButton1;

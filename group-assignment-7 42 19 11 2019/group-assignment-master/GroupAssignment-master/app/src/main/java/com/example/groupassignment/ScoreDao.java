@@ -9,6 +9,7 @@ import androidx.room.Query;
 
 import java.util.List;
 
+//this will be the query and insert data method for the scoreDatabase.
 @Dao
 public interface ScoreDao {
 

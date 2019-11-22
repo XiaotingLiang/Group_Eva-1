@@ -9,6 +9,7 @@ import androidx.room.Query;
 
 import java.util.List;
 
+//this will be used to query and insert data for the TextDatabase.
 @Dao
 public interface TextDao {
     @Query("SELECT * FROM Text")

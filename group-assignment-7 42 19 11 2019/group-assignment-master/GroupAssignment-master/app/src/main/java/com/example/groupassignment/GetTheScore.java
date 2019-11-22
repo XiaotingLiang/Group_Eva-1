@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+//this class can get the score for the result of quiz.
 public class GetTheScore extends AppCompatActivity {
 
     TextView textView21;

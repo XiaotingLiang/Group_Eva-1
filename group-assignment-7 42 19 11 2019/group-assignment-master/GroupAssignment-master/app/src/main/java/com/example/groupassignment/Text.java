@@ -3,6 +3,7 @@ package com.example.groupassignment;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+//this class will be used as a table, which will be used for the text database.
 @Entity
 public class Text {
     @PrimaryKey(autoGenerate = true)

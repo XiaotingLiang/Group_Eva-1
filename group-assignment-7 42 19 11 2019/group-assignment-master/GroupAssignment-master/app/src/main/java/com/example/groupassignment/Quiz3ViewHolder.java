@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+//this Class is used for question item, which is the each question layout in quiz3_recyclerView.
 public class Quiz3ViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imageView29;

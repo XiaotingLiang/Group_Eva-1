@@ -41,17 +41,20 @@ public class DogDescription extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dog_description);
 
+        //get the dogID and dogName from the DogViewAdapter
         Intent intent = getIntent();
         final int dogNum = intent.getIntExtra("dogNum", 0);
         final String dogName = intent.getStringExtra("dogName");
 
+        //this database will be used to store the question material for quiz3_recyclerView.
         final QuestionOfDogDatabase questionDatabase = Room.databaseBuilder(this, QuestionOfDogDatabase.class, "database_question").allowMainThreadQueries()
                 .build();
-
+        //put the dogID and dogName to the questionDatabase for getting the data in the quiz3_recyclerView.
         QuestionOfDog questionOfDog = new QuestionOfDog();
         questionOfDog.setDogId(dogNum);
         questionOfDog.setDogName(dogName);
         questionDatabase.getQuestionOfDogDao().insertQuestionOfDog(questionOfDog);
+
 
         imageView3 = findViewById(R.id.imageView3);
         textView9 = findViewById(R.id.textView9);
@@ -66,6 +69,7 @@ public class DogDescription extends AppCompatActivity{
         video = findViewById(R.id.btn_watchvideo);
 
 
+        //this button is used for storing the text in the textDatabase.
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +86,7 @@ public class DogDescription extends AppCompatActivity{
             }
         });
 
+        //this button is used for watching the video online.
         video.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,6 +102,7 @@ public class DogDescription extends AppCompatActivity{
             }
         });
 
+        //this database has been used to store dog api, this part will be used to get the origin, lif_span, bred_for, breed_group and temperament.
         final DogDatabase dogDB = Room.databaseBuilder(this, DogDatabase.class, "database_dog").allowMainThreadQueries()
                 .build();
 
@@ -113,24 +119,25 @@ public class DogDescription extends AppCompatActivity{
         }else{
             textView15.setText(dogDB.dogDao().findDogById(dogNum).getLife_span());
         }
-        if(dogDB.dogDao().findDogById(dogNum).getBred_for()==null){
+        if(dogDB.dogDao().findDogById(dogNum).getBred_for() == null){
             textView11.setText("unknown");
 
         }else{
             textView11.setText(dogDB.dogDao().findDogById(dogNum).getBred_for());
         }
-
-
-
-
         if(dogDB.dogDao().findDogById(dogNum).getBreed_group() == null){
             textView17.setText("unknown");
         }else {
             textView17.setText(dogDB.dogDao().findDogById(dogNum).getBreed_group());
         }
 
-        textView19.setText(dogDB.dogDao().findDogById(dogNum).getTemperament());
+        if(dogDB.dogDao().findDogById(dogNum).getTemperament() == null){
+            textView19.setText("unknown");
+        }else {
+            textView19.setText(dogDB.dogDao().findDogById(dogNum).getTemperament());
+        }
 
+        //this website will be used to search the wikipedia
         final String search = "https://en.wikipedia.org/wiki/" + dogName;
         button6.setText(search);
         button6.setOnClickListener(new View.OnClickListener() {
@@ -142,20 +149,26 @@ public class DogDescription extends AppCompatActivity{
             }
         });
 
+        //this volley will be used to search the dog image api
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         Intent intent1 = getIntent();
         String urlID = String.valueOf(intent1.getIntExtra("urlID", 0));
+        //dog image api website
         urlImage = "https://api.TheDogApi.com/v1/images/search?breed_ids=" + urlID;
 
         Response.Listener<String> responseListener1 = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 final Gson gson = new Gson();
+
+                //store the dog image for the response(has returned the api data)
                 DogImage[] objectsArrayCatImage = gson.fromJson(response, DogImage[].class);
                 List<DogImage> objectsImageList = Arrays.asList(objectsArrayCatImage);
                     try {
+                        //the dog image url will be put in the questionDatabase, this will be prepared for the question material for the quiz3_recyclerView.
                         questionDatabase.getQuestionOfDogDao().setDodImage(objectsImageList.get(0).getUrl(), dogNum);
+                        //this data is url, which will be used to get the god image.
                         Glide.with(getApplicationContext()).load(objectsImageList.get(0).getUrl()).into(imageView3);
                     }catch (ArrayIndexOutOfBoundsException e){
                         System.out.println(e.getMessage());

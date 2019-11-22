@@ -3,6 +3,7 @@ package com.example.groupassignment;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+//this class will be used to store the question material for quiz3_recyclerView.
 @Entity
 public class QuestionOfDog {
     @PrimaryKey

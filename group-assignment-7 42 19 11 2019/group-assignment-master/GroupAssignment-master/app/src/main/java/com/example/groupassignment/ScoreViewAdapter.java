@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+//this will be use to combine the score and recyclerView(in the level fragment) together.
 public class ScoreViewAdapter extends RecyclerView.Adapter<ScoreViewHolder>   {
 
 
@@ -17,6 +18,7 @@ public class ScoreViewAdapter extends RecyclerView.Adapter<ScoreViewHolder>   {
         this.score_List = scoreList;
     }
 
+    //this will make the recycler.view to use the ScoreViewHolder as the item.
     @Override
     public ScoreViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_score, parent, false);
@@ -24,7 +26,7 @@ public class ScoreViewAdapter extends RecyclerView.Adapter<ScoreViewHolder>   {
         return holder;
     }
 
-
+//this will be used to set the score item content in recyclerView.
     @Override
     public void onBindViewHolder(final ScoreViewHolder holder, final int position) {
         holder.textView4.setText(String.valueOf(score_List.get(position).getScore()));

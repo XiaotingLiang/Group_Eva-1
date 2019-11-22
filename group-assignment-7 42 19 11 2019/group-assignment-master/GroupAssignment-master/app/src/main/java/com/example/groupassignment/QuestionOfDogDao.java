@@ -7,6 +7,7 @@ import androidx.room.Query;
 
 import java.util.List;
 
+//this interface is to illustrate how to operate the database.
 @Dao
 public interface QuestionOfDogDao {
 

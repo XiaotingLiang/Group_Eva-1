@@ -14,6 +14,7 @@ import com.example.groupassignment.R;
 
 import java.util.List;
 
+//this will combine the textViewHolder and RecyclerView work together.
 public class TextAdapterView extends RecyclerView.Adapter<TextViewHolder>   {
 
 
@@ -23,6 +24,7 @@ public class TextAdapterView extends RecyclerView.Adapter<TextViewHolder>   {
         this.text_List = textList;
     }
 
+    //set the TextViewHolder as item in the recyclerView
     @Override
     public TextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_text, parent, false);
@@ -31,17 +33,19 @@ public class TextAdapterView extends RecyclerView.Adapter<TextViewHolder>   {
     }
 
 
+    //set the data in the TextViewHolder, which will be used in the recyclerView.
     @Override
     public void onBindViewHolder(final TextViewHolder holder, final int position) {
         holder.textView3.setText(text_List.get(position).getText_topic());
         holder.textView5.setText(text_List.get(position).getText_content());
+        //when press the button the score database will be cleared.
         holder.button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                     TextDatabase tdb = Room.databaseBuilder(v.getContext(), TextDatabase.class, "text_database")
                             .allowMainThreadQueries().build();
                     tdb.textDao().delete(text_List.get(position));
-                Toast.makeText(v.getContext(),"Please refresh this page to get the newest note history",Toast.LENGTH_LONG).show();
+                Toast.makeText(v.getContext(),"Re-Click Note Button to refresh this page to get the newest note history",Toast.LENGTH_LONG).show();
                 }
 
         });

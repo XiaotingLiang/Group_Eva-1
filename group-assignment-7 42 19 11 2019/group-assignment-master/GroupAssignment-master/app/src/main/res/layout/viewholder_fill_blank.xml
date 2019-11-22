@@ -25,7 +25,7 @@
             android:id="@+id/editText29"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Please type your answer" />
+            android:hint="Please type your answer and submit" />
 
         <Button
             android:id="@+id/button29"

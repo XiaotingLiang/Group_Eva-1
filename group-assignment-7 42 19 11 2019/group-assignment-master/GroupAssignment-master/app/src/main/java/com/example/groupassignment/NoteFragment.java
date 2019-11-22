@@ -30,7 +30,7 @@ public class NoteFragment extends Fragment {
         TextDatabase tdb = Room.databaseBuilder(view.getContext(), TextDatabase.class, "text_database")
                 .allowMainThreadQueries().build();
 
-
+        //indicate the data which in the text_database, the text will be put the recyclerView.
         textView = view.findViewById(R.id.textView);
         recyclerView4 = view.findViewById(R.id.recyclerView4);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext());

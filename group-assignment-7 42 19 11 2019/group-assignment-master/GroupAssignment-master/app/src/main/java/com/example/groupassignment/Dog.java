@@ -3,6 +3,7 @@ package com.example.groupassignment;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+// this class is used to store api data, and it is also the table in the room database.
 @Entity
 public class Dog {
 

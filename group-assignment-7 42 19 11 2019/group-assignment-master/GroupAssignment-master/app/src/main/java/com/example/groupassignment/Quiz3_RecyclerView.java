@@ -27,22 +27,24 @@ public class Quiz3_RecyclerView extends AppCompatActivity {
 
         button8 = findViewById(R.id.button8);
 
+        //get the question material from the questionDatabase
         final QuestionOfDogDatabase questionDatabase = Room.databaseBuilder(this, QuestionOfDogDatabase.class, "database_question").allowMainThreadQueries()
                 .build();
-
         final List<QuestionOfDog> questionOfDog = questionDatabase.getQuestionOfDogDao().getAllQuestionOfDog();
 
+        //this recyclerView will indicate the fill blank question item.
         recyclerView1 = findViewById(R.id.recyclerView1);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView1.setLayoutManager(linearLayoutManager);
-
         Quiz3ViewAdapter quiz3ViewAdapter = new Quiz3ViewAdapter(questionOfDog);
-
         recyclerView1.setAdapter(quiz3ViewAdapter);
 
+        /*this button will be used to translate the score to get the getTheScore.class, and this score will be put in the scoreDatabase.
+        the type of quiz is also will be put in the scoreDatabase*/
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //this data in the sharepreferences will be used to calculate the total score.
                 SharedPreferences sharedPreferences = getDefaultSharedPreferences(v.getContext());
                 int score1 = sharedPreferences.getInt("score1", 0);
                 int score2 = sharedPreferences.getInt("score2", 0);

@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-
+//this quiz2 will indicate the true and false question
 public class Quiz2 extends AppCompatActivity {
 
 
@@ -116,6 +116,8 @@ public class Quiz2 extends AppCompatActivity {
             }
         });
 
+        /*this button will be used to translate the score to get the getTheScore.class, and this score will be put in the scoreDatabase.
+        the type of quiz is also will be put in the scoreDatabase*/
         button5 = findViewById(R.id.button5);
         button5.setOnClickListener(new View.OnClickListener() {
             @Override

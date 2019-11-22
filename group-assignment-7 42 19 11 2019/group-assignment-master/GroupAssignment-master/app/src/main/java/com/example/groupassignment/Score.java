@@ -3,6 +3,7 @@ package com.example.groupassignment;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+//this class is used to store the score, which is a table in scoreDatabase.
 @Entity
 public class Score {
     @PrimaryKey(autoGenerate = true)

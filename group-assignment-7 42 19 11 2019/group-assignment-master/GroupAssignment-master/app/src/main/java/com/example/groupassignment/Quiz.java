@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 
-
+//this quiz used the radiobutton to make a multiple choice.
 public class Quiz extends AppCompatActivity {
 
     Button button5;
@@ -31,6 +31,7 @@ public class Quiz extends AppCompatActivity {
         textView24 = findViewById(R.id.textView24);
 
         textView7.setText("which dog's name is Affenpinshcher");
+
         RadioGroup radioGroup1 = findViewById(R.id.radioGroup);
         radioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -146,6 +147,8 @@ public class Quiz extends AppCompatActivity {
             }
         });
 
+        /*this button will be used to translate the score to get the getTheScore.class, and this score will be put in the scoreDatabase.
+        the type of quiz is also will be put in the scoreDatabase*/
         button5 = findViewById(R.id.button5);
         button5.setOnClickListener(new View.OnClickListener() {
             @Override

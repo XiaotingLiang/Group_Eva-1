@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 
 
 import java.util.Arrays;
-
+//this class will be used to put the delegate and database, the purpose is the to store the api data into the database.
 public class InsertDogAsyncTask extends AsyncTask<Dog, Integer, String> {
 
     private AsyncTaskDelegate delegate;

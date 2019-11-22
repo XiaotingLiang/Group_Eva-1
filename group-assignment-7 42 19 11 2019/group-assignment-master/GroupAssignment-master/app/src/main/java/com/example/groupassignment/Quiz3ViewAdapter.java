@@ -18,8 +18,10 @@ import java.util.Set;
 
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
+//this adapter will be used for the recyclerView in the quiz3_recyclerView
 public class Quiz3ViewAdapter extends RecyclerView.Adapter<Quiz3ViewHolder> {
 
+    //this will be used to set the key in the sharepreferences.
     String scoreNum[] = {"score1", "score2", "score3", "score4", "score5", "score6", "score7", "score8", "score9", "score10"};
 
 public List<QuestionOfDog> question_List;
@@ -29,6 +31,7 @@ public Quiz3ViewAdapter(List questionList){
         this.question_List = questionList;
         }
 
+        //put the Quiz3ViewHolder in the recyclerView as the item
 @Override
 public Quiz3ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_fill_blank, parent, false);
@@ -36,7 +39,7 @@ public Quiz3ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return holder;
         }
 
-
+//set the question content in the Quiz3ViewHolder
 @Override
 public void onBindViewHolder(final Quiz3ViewHolder holder, final int position) {
     try {

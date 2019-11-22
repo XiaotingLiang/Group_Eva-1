@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.groupassignment.R;
 
+//create the dogViewHolder to put in the recycler view.
 public class DogViewHolder extends RecyclerView.ViewHolder{
 
         TextView textView2;

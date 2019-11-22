@@ -24,7 +24,6 @@
         <activity android:name=".Quiz" />
         <activity android:name=".GetTheScore" />
         <activity android:name=".DogDescription" />
-        <activity android:name=".DogVideo" />
         <activity android:name=".Quiz3_RecyclerView" />
     </application>
 

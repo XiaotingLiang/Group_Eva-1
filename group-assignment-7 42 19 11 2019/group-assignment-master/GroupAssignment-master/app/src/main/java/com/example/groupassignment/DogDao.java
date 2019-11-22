@@ -9,6 +9,7 @@ import androidx.room.Query;
 
 import java.util.List;
 
+//the interface is used to query and insert the data from and into the room database.
 @Dao
 public interface DogDao {
 

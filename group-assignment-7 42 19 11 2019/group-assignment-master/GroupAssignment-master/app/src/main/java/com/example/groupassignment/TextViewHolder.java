@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.groupassignment.R;
 
+//the text view layout will be created in here, and this is the item in the recyclerView.
 public class TextViewHolder extends RecyclerView.ViewHolder {
     TextView textView3;
     TextView textView5;
